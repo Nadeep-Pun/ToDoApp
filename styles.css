@@ -1,0 +1,97 @@
+body {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: whitesmoke;
+  font-size: 16px;
+  overflow: hidden;
+}
+
+#container {
+  height: 500px;
+  width: 400px;
+  background-color: white;
+  border-radius: 30px;
+  box-shadow: -10px 10px 15px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+#addTaskContainer {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+}
+
+#inputTask {
+  background-color: whitesmoke;
+  outline: none;
+  border: none;
+  font-size: 1.1rem;
+  color: black;
+  padding: 5px 10px;
+  border-radius: 15px;
+  width: 80%;
+}
+
+#addBtn,
+#deleteBtn {
+  color: white;
+  background-color: red;
+  border-radius: 50%;
+  font-size: 1.4rem;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#addBtn {
+  padding: 5px 10px;
+}
+
+#deleteBtn {
+  padding: 5px 13px;
+}
+
+ul {
+  list-style-type: none;
+  flex: 1;
+  overflow-y: auto;
+  margin: 0;
+  padding: 5px;
+}
+
+ul li {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+#taskDisp {
+  width: 80%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  background-color: whitesmoke;
+  border-radius: 15px;
+  padding-left: 5px;
+}
+
+input[type="checkbox"] {
+  width: 15px;
+  height: 15px;
+  accent-color: red;
+  cursor: pointer;
+}
+
+.completed {
+  text-decoration: line-through;
+}
