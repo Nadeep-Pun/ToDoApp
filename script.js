@@ -35,7 +35,7 @@ function addTask() {
 
     const p = document.createElement('p')
     p.setAttribute('id', `task${currentTaskId}`)
-    p.innerText = inputTask.value
+    p.innerText = capitalizeTask(inputTask.value)
     p.classList.add('notCompleted')
 
     p.addEventListener('click', () => editTask(p, isComplete))
@@ -83,7 +83,7 @@ function editTask(element, isComplete) {
 
     editTask.addEventListener('blur', () => {
         if (editTask.value !== '') {
-            element.innerHTML = editTask.value
+            element.innerHTML = capitalizeTask(editTask.value)
         } else {
             element.innerHTML = currentTask
         }
@@ -99,4 +99,8 @@ function editTask(element, isComplete) {
         }
     })
 
+}
+
+function capitalizeTask(task) {
+    return task.charAt(0).toUpperCase() + task.slice(1)
 }
