@@ -95,3 +95,7 @@ input[type="checkbox"] {
 .completed {
   text-decoration: line-through;
 }
+
+.notCompleted {
+  cursor: pointer;
+}

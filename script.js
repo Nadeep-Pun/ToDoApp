@@ -16,6 +16,9 @@ addBtn.addEventListener('click', () => {
 
 function addTask() {
     if (inputTask.value === '') return
+
+    let isComplete = false
+
     const li = document.createElement('li')
     const currentTaskId = taskId
     li.setAttribute('id', `li${currentTaskId}`)
@@ -25,11 +28,17 @@ function addTask() {
 
     const checkbox = document.createElement('input')
     checkbox.type = 'checkbox'
-    checkbox.addEventListener('change', () => toggle(checkbox, currentTaskId))
+    checkbox.addEventListener('change', () => {
+        isComplete = !isComplete
+        toggle(checkbox, currentTaskId)
+    })
 
     const p = document.createElement('p')
     p.setAttribute('id', `task${currentTaskId}`)
     p.innerText = inputTask.value
+    p.classList.add('notCompleted')
+
+    p.addEventListener('click', () => editTask(p, isComplete))
 
     const deleteBtn = document.createElement('button')
     deleteBtn.setAttribute('id', 'deleteBtn')
@@ -58,4 +67,36 @@ function toggle(checkbox, id) {
 function deleteTask(id) {
     const task = document.getElementById(`li${id}`)
     task.remove()
+}
+
+function editTask(element, isComplete) {
+    if (isComplete) return
+
+    const currentTask = element.innerText
+    const editTask = document.createElement('input')
+    editTask.type = 'text'
+    editTask.value = currentTask
+
+    element.innerHTML = ''
+    element.appendChild(editTask)
+    editTask.focus()
+
+    editTask.addEventListener('blur', () => {
+        if (editTask.value !== '') {
+            element.innerHTML = editTask.value
+        } else {
+            element.innerHTML = currentTask
+        }
+    })
+
+    editTask.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            if (editTask.value !== '') {
+                element.innerHTML = editTask.value
+            } else {
+                element.innerHTML = currentTask
+            }
+        }
+    })
+
 }
