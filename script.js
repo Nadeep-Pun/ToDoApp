@@ -69,6 +69,7 @@ function deleteTask(id) {
     task.remove()
 }
 
+// to edit the task
 function editTask(element, isComplete) {
     if (isComplete) return
 
